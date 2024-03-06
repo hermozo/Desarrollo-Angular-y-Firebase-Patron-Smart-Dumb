@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-actions align="end">
+    @if (estado) {
+      <button mat-button (click)="logout()">Cerrar sesion</button>
+    } @else {
+      <button color="warn" (click)="login()" mat-button>Iniciar sesion</button>
+    }
+  </mat-card-actions>
+</mat-card>
+<br/>
+@if (estado) {
+  <button (click)="createPizza()" mat-button color="primary">CREAR NUEVA PIZZA</button>
+}
+<br/>
+<br/>
+@if (arrPizzasCard.length) {
+  <div class="row">
+    @for (piza of arrPizzasCard; track piza) {
+      <div class="col-md-3">
+        <mat-card style="border: aliceblue 2px solid">
+          <mat-card-header>
+            <mat-card-title style="color: aliceblue"><span
+              style="color: darkorange">{{ piza.count }}</span>  {{ piza.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div style="height: 50px; overflow: auto">
+                {{ piza.description }}
+              </div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions align="end">
+            <button mat-button>Bs. {{ piza.precio }}</button>
+            <button mat-raised-button color="warn" (click)="quitar(piza)"  >QUITAR</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    }
+  </div>
+  <mat-card style="border: aliceblue 2px solid">
+    <mat-card-header>
+      <mat-card-title style="color: aliceblue">Una vez que hayas añadido productos a tu carrito, puedes proceder a
+        realizar la compra.
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button>TOTAL Bs. {{ total }}</button>
+      <button mat-raised-button color="accent" (click)="pedido()" >REALIZAR PEDIDO</button>
+    </mat-card-actions>
+  </mat-card>
+}
+<br/>
+<app-dumb-index [arrPizzas]="arrPizzas" [estado]="estado" (dumbEvent)="onDumbEvent($event)"></app-dumb-index>
+
+

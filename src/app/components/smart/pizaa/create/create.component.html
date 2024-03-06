@@ -1,0 +1,32 @@
+<mat-card style="width: 100%">
+  <mat-card-header>
+    <mat-card-subtitle>Crear Pizza</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+<br/>
+<br/>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form [formGroup]="pizzaForm" (ngSubmit)="onSubmit()" class="full-width-form">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="title" placeholder="Título de la pizza">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="description" placeholder="Descripción de la pizza"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Precio</mat-label>
+          <input matInput type="number" formControlName="precio" placeholder="Precio de la pizza">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="pizzaForm.invalid">Guardar</button>
+      </form>
+
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
