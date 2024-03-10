@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyANzpIezB8dGmhJ9PxeBXLtL-cLDI8soSk',
+    apiKey: 'AIzaSyANzpIezB8dGmhJ9PxeBXLtL-Cderfd45',
     authDomain: 'pruebaapp-84402.firebaseapp.com',
     databaseURL: 'https://pruebaapp-84402-default-rtdb.firebaseio.com',
     projectId: 'pruebaapp-84402',
